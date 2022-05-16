@@ -9,6 +9,8 @@ class Author(models.Model):
 
     def update_rating(self):
 
+        # Агрегация - процесс объединения элементов в одну систему.
+        # !!!!!!!!!!!!!!читай доку, там все понятно!!!!!!!!!!!!!!!!!!
         posts_ratings = self.post_set.aggregate(rating=Sum('rating'))
         pRat = 0
 
