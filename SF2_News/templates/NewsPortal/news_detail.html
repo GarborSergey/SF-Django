@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block title %}
+  Detail
+{% endblock %}
+
+{% block content %}
+  <h3>{{ news.title }}</h3>
+  <div align="left">
+      {{ news.text|text_filter }}
+      <hr>
+      <p>Опубликовано - {{ news.date_added|date:"d.m.Y" }}</p>
+  </div>
+{% endblock %}

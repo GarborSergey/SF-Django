@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block title %}
+  {{ type }}
+{% endblock %}
+
+{% block content %}
+  <h3>All {{ type }}</h3>
+  {% for n in news %}
+    <div align="left">
+      <h5>{{ n.title }}</h5>
+      <p>{{ n.date_added }}</p>
+      <p>{{ n.text|text_filter|truncatewords:20 }}</p>
+      <a href="{% url 'news_portal:post_detail' n.id %}"><p>Читать полностью</p></a>
+      <hr>
+    </div>
+  {% endfor %}
+{% endblock %}

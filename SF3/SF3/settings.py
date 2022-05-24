@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z*uba$3kxgqc_5f2bw%f!!f3-ajl8qxl_egs2bsd-7ivu*c+5('
+SECRET_KEY = 'django-insecure-wgrg_w=x)ipwf6b)qqbkcr64rd1(@=#x0(h1h^9+x$5g__%1&7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NewsPortal.apps.NewsportalConfig'
+    'SimpleApp',
 ]
 
 MIDDLEWARE = [
@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'SF2_News.urls'
+ROOT_URLCONF = 'SF3.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SF2_News.wsgi.application'
+WSGI_APPLICATION = 'SF3.wsgi.application'
 
 
 # Database
@@ -101,9 +101,18 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
 STATIC_URL = 'static/'
+
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
