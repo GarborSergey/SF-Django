@@ -36,4 +36,5 @@ class ArticlesList(ListView):
         return context
 
 def home(request):
+    # А код вы точно смотрите?
     return render(request, 'NewsPortal/index.html')
