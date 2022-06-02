@@ -1,4 +1,4 @@
-from NewsPortal.models import Author, Category, Post, PostCategory, Comment
+from NewsPortal.models import Author, Category, Post, Comment
 from django.contrib.auth.models import User
 
 >>> u1 = User.objects.create_user('Alex')

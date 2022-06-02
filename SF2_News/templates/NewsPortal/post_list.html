@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block title %}
+  {{ type }}
+{% endblock %}
+
+{% block content %}
+  <h3>All {{ type }}</h3>
+  {% for post in posts %}
+    <div align="left">
+      <h5>{{ post.title }}</h5>
+      <p>Categories: {% for category in post.category.all %} {{ category.name }} / {% endfor %}</p>
+      <p>{{ post.text|text_filter|truncatewords:20 }}</p>
+      <p>Published on the - {{ post.date_added|date:"d.m.Y" }} </p>
+      <a href="{% url 'news_portal:post_detail' post.id %}"><p>Читать полностью</p></a>
+      <hr>
+    </div>
+  {% endfor %}
+
+  {% if page_obj.has_previous %}
+       <a href="?page=1">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {{ page_obj.number }}
+
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+{% endblock %}

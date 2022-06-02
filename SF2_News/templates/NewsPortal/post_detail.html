@@ -7,8 +7,13 @@
 {% block content %}
   <h3>{{ news.title }}</h3>
   <div align="left">
-      {{ news.text|text_filter }}
+      {{ news.text|linebreaks }}
       <hr>
       <p>Опубликовано - {{ news.date_added|date:"d.m.Y" }}</p>
   </div>
+  <p>
+      <a href="{% url 'news_portal:post_edit' news.id %}">Edit</a>
+
+      <a href="{% url 'news_portal:post_delete' news.id %}">Delete </a>
+  </p>
 {% endblock %}
